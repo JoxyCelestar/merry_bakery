@@ -1,0 +1,139 @@
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2025-07-03 01:48:06 -0400"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:forest": "2025-07-03 01:48:07 -0400",
+      "minecraft:plains": "2025-07-03 01:48:59 -0400"
+    },
+    "done": false
+  },
+  "farm_and_charm:main/root": {
+    "criteria": {
+      "example_criterion": "2025-07-03 01:48:07 -0400"
+    },
+    "done": true
+  },
+  "bakery:main/root": {
+    "criteria": {
+      "seeds": "2025-07-03 01:48:21 -0400"
+    },
+    "done": true
+  },
+  "bakery:main/get_everything": {
+    "criteria": {
+      "bakery:glowberry_tart": "2025-07-18 23:56:53 -0400",
+      "bakery:chocolate_glazed_cookie": "2025-07-03 01:48:21 -0400",
+      "bakery:strawberry_jam": "2025-07-18 23:28:47 -0400",
+      "bakery:sweetberry_jam": "2025-07-18 23:29:01 -0400",
+      "bakery:chocolate_jam": "2025-07-18 23:29:03 -0400",
+      "bakery:chocolate_tart": "2025-07-18 23:56:54 -0400",
+      "bakery:apple_pie": "2025-07-18 23:56:30 -0400",
+      "bakery:glowberry_jam": "2025-07-18 23:29:04 -0400",
+      "bakery:strawberry_cake": "2025-07-03 01:48:33 -0400",
+      "bakery:linzer_tart": "2025-07-18 23:56:29 -0400",
+      "bakery:chocolate_cake": "2025-07-18 23:56:28 -0400",
+      "bakery:sweetberry_cake": "2025-07-18 23:56:27 -0400",
+      "bakery:apple_jam": "2025-07-18 23:29:02 -0400"
+    },
+    "done": false
+  },
+  "bakery:main/get_all_caked_goods": {
+    "criteria": {
+      "bakery:chocolate_cake": "2025-07-18 23:56:28 -0400",
+      "bakery:chocolate_glazed_cookie": "2025-07-03 01:48:21 -0400",
+      "bakery:sweetberry_cake": "2025-07-18 23:56:27 -0400",
+      "bakery:strawberry_cake": "2025-07-03 01:48:33 -0400"
+    },
+    "done": false
+  },
+  "farm_and_charm:main/find_wild_crops": {
+    "criteria": {
+      "oat": "2025-07-03 01:48:21 -0400",
+      "wild_strawberry": "2025-07-03 01:48:21 -0400",
+      "corn": "2025-07-03 01:48:21 -0400",
+      "onion": "2025-07-03 01:48:21 -0400",
+      "wild_corn": "2025-07-03 01:48:21 -0400",
+      "wild_ribwort": "2025-07-03 01:48:21 -0400",
+      "strawberry": "2025-07-03 01:48:21 -0400",
+      "wild_nettle": "2025-07-03 01:48:21 -0400",
+      "barley": "2025-07-03 01:48:21 -0400",
+      "tomato": "2025-07-03 01:48:21 -0400",
+      "lettuce": "2025-07-03 01:48:21 -0400",
+      "wild_lettuce": "2025-07-03 01:48:21 -0400",
+      "wild_tomatoes": "2025-07-03 01:48:21 -0400",
+      "oat_seeds": "2025-07-03 01:48:21 -0400",
+      "tomato_seeds": "2025-07-03 01:48:21 -0400",
+      "barley_seeds": "2025-07-03 01:48:21 -0400",
+      "strawberry_seeds": "2025-07-03 01:48:21 -0400",
+      "lettuce_seeds": "2025-07-03 01:48:21 -0400",
+      "kernels": "2025-07-03 01:48:21 -0400",
+      "wild_barley": "2025-07-03 01:48:21 -0400",
+      "wild_onion": "2025-07-03 01:48:21 -0400",
+      "wild_oat": "2025-07-03 01:48:21 -0400"
+    },
+    "done": true
+  },
+  "bakery:main/get_all_cakes": {
+    "criteria": {
+      "bakery:chocolate_cake": "2025-07-18 23:56:28 -0400",
+      "bakery:sweetberry_cake": "2025-07-18 23:56:27 -0400",
+      "bakery:strawberry_cake": "2025-07-03 01:48:33 -0400"
+    },
+    "done": false
+  },
+  "minecraft:husbandry/root": {
+    "criteria": {
+      "consumed_item": "2025-07-03 02:13:05 -0400"
+    },
+    "done": true
+  },
+  "bakery:main/place_baker_station": {
+    "criteria": {
+      "baker_station": "2025-07-15 06:50:18 -0400"
+    },
+    "done": true
+  },
+  "bakery:main/cut_strawberry_cake": {
+    "criteria": {
+      "use_strawberry_cake": "2025-07-15 07:14:40 -0400"
+    },
+    "done": true
+  },
+  "bakery:main/get_all_jams": {
+    "criteria": {
+      "bakery:sweetberry_jam": "2025-07-18 23:29:01 -0400",
+      "bakery:strawberry_jam": "2025-07-18 23:28:47 -0400",
+      "bakery:glowberry_jam": "2025-07-18 23:29:04 -0400",
+      "bakery:chocolate_jam": "2025-07-18 23:29:03 -0400",
+      "bakery:apple_jam": "2025-07-18 23:29:02 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2025-07-18 23:29:03 -0400"
+    },
+    "done": true
+  },
+  "bakery:main/place_bread_crate": {
+    "criteria": {
+      "bread_crate": "2025-07-18 23:31:17 -0400"
+    },
+    "done": true
+  },
+  "bakery:main/get_all_baked_goods": {
+    "criteria": {
+      "bakery:glowberry_tart": "2025-07-18 23:56:53 -0400",
+      "bakery:chocolate_tart": "2025-07-18 23:56:54 -0400",
+      "bakery:apple_pie": "2025-07-18 23:56:30 -0400",
+      "bakery:linzer_tart": "2025-07-18 23:56:29 -0400"
+    },
+    "done": false
+  },
+  "DataVersion": 3465
+}

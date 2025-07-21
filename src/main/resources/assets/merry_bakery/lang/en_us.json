@@ -1,0 +1,14 @@
+{
+  "item.merry_bakery.fruitcake_slice": "Fruitcake Slice",
+
+  "block.merry_bakery.fruitcake": "Fruitcake",
+
+  "creative_tab.merry_bakery_tab": "Merry Bakery",
+
+  "tooltip.merry_bakery.can-be-placed": "Can be placed",
+  "tooltip.merry_bakery.cake-pickup": "§e[Right-Click]§r to pick it up",
+  "tooltip.merry_bakery.cake-with-knife": "§e[Right-Click]§r with any §a[Knife]§r to cut",
+  "tooltip.merry_bakery.cake-eat": "§e[Shift Right-Click]§r to eat",
+
+  "tooltip.merry_bakery.credit": "Added by §o[Merry Bakery <3]§r"
+}

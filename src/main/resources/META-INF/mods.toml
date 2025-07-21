@@ -1,0 +1,51 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "merry_bakery"
+version = "${version}"
+displayName = "Merry Bakery"
+authors = "Joxy Celestar, Stormtail"
+description = ''''
+Cross Implementation between Maiden's Merrymaking and Let's do bakery, alongside plenty of other content
+'''
+#logoFile = ""
+
+[[dependencies.merry_bakery]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.merry_bakery]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+# Bakery and Farm and charm dependency
+[[dependencies.merry_bakery]]
+modId = "bakery"
+mandatory = true
+versionRange = "[2.0.5,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.merry_bakery]]
+modId = "farm_and_charm"
+mandatory = true
+versionRange = "[1.0.9,)"
+ordering = "AFTER"
+side = "BOTH"
+
+# Merrymaking optional dependency
+[[dependencies.merry_bakery]]
+modId = "maidensmerrymaking"
+mandatory = false
+versionRange = "[1.0.0,)"
+ordering = "AFTER"
+side = "BOTH"

@@ -81,10 +81,12 @@ public class IntermediatePieBlock extends FacingBlock {
     protected InteractionResult ADD_CAKE_STAGE(Level LEVEL, BlockPos POSITION, BlockState BLK_STATE, Player PLAYER, InteractionHand ON_HAND, ItemStack HELD_ITEM) {
         int CURRENT_STAGE = BLK_STATE.getValue(STAGES);
 
-        if (CURRENT_STAGE < get_MaxStages() - 3) { LEVEL.setBlock(POSITION, BLK_STATE.setValue(STAGES, CURRENT_STAGE + 1), 4); LEVEL.playSound(null, POSITION, SoundEvents.SLIME_BLOCK_PLACE, SoundSource.PLAYERS, 0.5f, 0.5f); }
+        // This could probs be donw with a switch, but I'm not that smart
+        if (CURRENT_STAGE < get_MaxStages() - 3) { LEVEL.setBlock(POSITION, BLK_STATE.setValue(STAGES, CURRENT_STAGE + 1), 4); LEVEL.playSound(null, POSITION, SoundEvents.SLIME_BLOCK_PLACE, SoundSource.PLAYERS, 0.5f, 0.5f);}
         if (CURRENT_STAGE < get_MaxStages() - 2) { LEVEL.setBlock(POSITION, BLK_STATE.setValue(STAGES, CURRENT_STAGE + 1), 4); LEVEL.playSound(null, POSITION, SoundEvents.WOOL_PLACE,        SoundSource.PLAYERS, 0.5f, 0.5f);}
         if (CURRENT_STAGE < get_MaxStages() - 1) { LEVEL.setBlock(POSITION, BLK_STATE.setValue(STAGES, CURRENT_STAGE + 1), 4); LEVEL.playSound(null, POSITION, SoundEvents.SLIME_DEATH_SMALL, SoundSource.PLAYERS, 0.5f, 0.5f);}
         if (CURRENT_STAGE < get_MaxStages())     { LEVEL.setBlock(POSITION, BLK_STATE.setValue(STAGES, CURRENT_STAGE + 1), 4); LEVEL.playSound(null, POSITION, SoundEvents.BEEHIVE_DRIP,      SoundSource.PLAYERS, 0.5f, 0.5f);}
+        return InteractionResult.SUCCESS;
     }
     //-----------------------------------------------------------------------------------------------//
 }

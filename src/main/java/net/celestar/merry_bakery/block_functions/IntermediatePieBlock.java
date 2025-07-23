@@ -1,4 +1,4 @@
-package net.celestar.merry_bakery.core_functions;
+package net.celestar.merry_bakery.block_functions;
 
 import net.celestar.merry_bakery.registry.tag.tags_registry;
 import net.minecraft.Util;
@@ -11,6 +11,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -51,12 +52,23 @@ public class IntermediatePieBlock extends FacingBlock {
     //-----------------------------------------------------------------------------------------------//
     //-----------------------------------------------------------------------------------------------//
 
-
+    public static final IntegerProperty CUTS = IntegerProperty.create("cuts", 0, 6);
     public static final IntegerProperty STAGES = IntegerProperty.create("cake_stage", 0, 4);
+    public final Supplier<Item> SLICES;
+    public final Supplier<Item> LYR_FILLING;
+    public final Supplier<Item> LYR_TOPLAYER;
+    public final Supplier<Item> LYR_GLAZE;
+    public final Supplier<Item> LYR_TOPPINGS;
     public int get_MaxStages() { return 4; }
+    public int get_MaxCuts() { return 6; }
 
-    public IntermediatePieBlock(Properties BLK_PROPERTIES, Supplier<Item> FILLING, Supplier<Item> TOP_LAYER, Supplier<Item> GLAZE, Supplier<Item> TOPPINGS) {
+    public IntermediatePieBlock(Properties BLK_PROPERTIES, Supplier<Item> FILLING, Supplier<Item> TOP_LAYER, Supplier<Item> GLAZE, Supplier<Item> TOPPINGS, Supplier<Item> SLICED_ITEM) {
         super(BLK_PROPERTIES);
+        this.LYR_FILLING =  FILLING;
+        this.LYR_TOPLAYER = TOP_LAYER;
+        this.LYR_GLAZE =    GLAZE;
+        this.LYR_TOPPINGS = TOPPINGS;
+        this.SLICES =       SLICED_ITEM != null ? SLICED_ITEM : () -> Items.AIR;
     }
 
     //-----------------------------------------------------------------------------------------------//

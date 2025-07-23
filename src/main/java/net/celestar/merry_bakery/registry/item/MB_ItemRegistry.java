@@ -10,8 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class MB_ItemRegistry {
-    public static final DeferredRegister<Item> MOD_ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, Merry_Bakery.MOD_ID);
+    public static final DeferredRegister<Item> MOD_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Merry_Bakery.MOD_ID);
 
 
 // ------------------------------------------------------------------------------------------ //

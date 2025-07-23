@@ -1,6 +1,7 @@
-package net.celestar.merry_bakery.core_functions;
+package net.celestar.merry_bakery.block_functions.stages_cake;
 
 import com.mojang.datafixers.util.Pair;
+import net.celestar.merry_bakery.registry.tag.tags_registry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -40,9 +41,20 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 @SuppressWarnings({"deprecated"})
-public class sixCutPieblock extends FacingBlock {
+public class CakeBase_empty extends FacingBlock {
     //-----------------------------------------------------------------------------------------------//
-    public static final IntegerProperty CUTS = IntegerProperty.create("cuts", 0, 6);
+    //-----------------------------------------------------------------------------------------------//
+
+    // public static final IntegerProperty CUTS = IntegerProperty.create("cuts", 0, 6);
+    public static final IntegerProperty STAGES = IntegerProperty.create("cake_stage", 0, 1);
+
+    // public int get_MaxCuts() {return 6;}
+    public int get_CurrentStage() { return 0; }
+    // public int get_NextStage() { return 1; }
+
+    //-----------------------------------------------------------------------------------------------//
+    //-----------------------------------------------------------------------------------------------//
+
     private static final Supplier<VoxelShape> VOXEL_SHAPE_SUPPLIER = () -> {
         VoxelShape SHAPE = Shapes.empty();
         SHAPE = Shapes.joinUnoptimized(SHAPE, Shapes.box(0,0,0.0625,1,1,1), BooleanOp.OR);
@@ -54,32 +66,59 @@ public class sixCutPieblock extends FacingBlock {
             hMap.put(DIRECTION, GeneralUtil.rotateShape(Direction.NORTH, DIRECTION, VOXEL_SHAPE_SUPPLIER.get()));
         }
     });
+
+
+/*
+    // ??
     public final Supplier<Item> SLICES;
 
     // Block Functionality, basically: if it has slices left, give those, else give air
-    public sixCutPieblock(Properties BLK_Properties, Supplier<Item> SLICED_ITEM) {
+    public CakeBase_empty(Properties BLK_Properties, Supplier<Item> SLICED_ITEM) {
         super(BLK_Properties);
         this.SLICES = SLICED_ITEM != null ? SLICED_ITEM : () -> Items.AIR;
+    }
+    // ??
+*/
+    public final Supplier<Block> PREV_STAGE;
+    public final Supplier<Block> NEXT_STAGE;
+
+    public CakeBase_empty(Properties BLK_Properties, Supplier<Block> FROM_STAGE, Supplier<Block> TURNS_INTO) {
+        super(BLK_Properties);
+        this.PREV_STAGE = FROM_STAGE;
+        this.NEXT_STAGE = TURNS_INTO;
     }
 
     // @Override
     protected void create_BLOCKSTATE_DEFINITION(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(CUTS);
+        builder.add(STAGES);
     }
 
     // @Override
     // Redstone signal??? idk what this does
     public int get_AnalogOutputSignal(BlockState BLOCK_STATE, Level LEVEL, BlockPos POSITION) {
-        return get_MaxCuts() - BLOCK_STATE.getValue(CUTS);
+        return get_CurrentStage() - BLOCK_STATE.getValue(STAGES);
     }
 
+
+    //-----------------------------------------------------------------------------------------------//
+    //-----------------------------------------------------------------------------------------------//
+                // General interactions, same as default cake but with Stages to account for
     // *Level refers to where this is executred, Client or Server
     public @NotNull InteractionResult WHEN_USED(BlockState BLK_STATE, Level LEVEL, BlockPos POSITION, Player PLAYER, InteractionHand ON_HAND, BlockHitResult ON_HIT) {
         ItemStack HELD_ITEM = PLAYER.getItemInHand(ON_HAND);
 
-    // If player R-clicks with nothin in hand, no shift
-        if (!LEVEL.isClientSide && !PLAYER.isShiftKeyDown() && BLK_STATE.getValue(CUTS) == 0 && HELD_ITEM.isEmpty()) {
+        if (!LEVEL.isClientSide && !PLAYER.isShiftKeyDown() && BLK_STATE.getValue(STAGES) == 0 && HELD_ITEM.is(tags_registry.FILLINGS)) {
+            LEVEL.removeBlock(POSITION, false);
+            LEVEL.setBlock(POSITION, NEXT_STAGE.get().defaultBlockState(), 1);
+            HELD_ITEM.shrink(1);
+            return InteractionResult.SUCCESS;
+        }
+
+
+
+    // If player R-clicks with nothin in hand, no shift, give the cake itself
+        if (!LEVEL.isClientSide && !PLAYER.isShiftKeyDown() && BLK_STATE.getValue(STAGES) == 0 && HELD_ITEM.isEmpty()) {
             //Get player Facing direction
             Direction DIRECTION = PLAYER.getDirection().getOpposite();
             double X_DIR = DIRECTION.getStepX() * 0.1;
@@ -93,7 +132,7 @@ public class sixCutPieblock extends FacingBlock {
             LEVEL.removeBlock(POSITION, false);
             return InteractionResult.SUCCESS;
         }
-
+/*
     // If player has a Knife in hand and is sneaking
         if (PLAYER.isShiftKeyDown() && (HELD_ITEM.isEmpty() || HELD_ITEM.is(TagsRegistry.KNIVES))) {
             return this.CONSUME_SLICE(LEVEL, POSITION, BLK_STATE, PLAYER);
@@ -103,7 +142,7 @@ public class sixCutPieblock extends FacingBlock {
         if (!PLAYER.isShiftKeyDown() &&  (HELD_ITEM.isEmpty() || HELD_ITEM.is(TagsRegistry.KNIVES))) {
             return CUT_SLICE(LEVEL, POSITION, BLK_STATE, PLAYER);
         }
-
+*/
         return InteractionResult.PASS;
     }
 
@@ -111,14 +150,13 @@ public class sixCutPieblock extends FacingBlock {
 
     //-----------------------------------------------------------------------------------------------//
 
-    public int get_MaxCuts() {return 6;}
 
     public boolean has_AnalogOuputSignal(BlockState BLK_STATE) { return true; }
 
     public boolean CAN_SURVIVE(BlockState BLK_STATE, LevelReader LVL_READER, BlockPos BLK_POSITION) {
         return GeneralUtil.isFullAndSolid(LVL_READER, BLK_POSITION);
     }
-
+/*
     // give player (this SLICES) as specified in the registry
     public ItemStack get_PieSlicedItem() { return new ItemStack(this.SLICES != null ? this.SLICES.get() : Items.AIR); }
 
@@ -170,7 +208,7 @@ public class sixCutPieblock extends FacingBlock {
         LEVEL.playSound(null, BLK_POSITION, SoundEventRegistry.CAKE_CUT.get(), SoundSource.PLAYERS, 0.75f,0.75f);
         return InteractionResult.SUCCESS;
     }
-
+*/
     //-----------------------------------------------------------------------------------------------//
                 // Text Descriptions
     // @Override

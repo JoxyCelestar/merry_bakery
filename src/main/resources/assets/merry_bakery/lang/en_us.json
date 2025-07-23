@@ -9,6 +9,7 @@
   "tooltip.merry_bakery.cake-pickup": "§e[Right-Click]§r to pick it up",
   "tooltip.merry_bakery.cake-with-knife": "§e[Right-Click]§r with any §a[Knife]§r to cut",
   "tooltip.merry_bakery.cake-eat": "§e[Shift Right-Click]§r to eat",
+  "tooltip.merry_bakery.credit": "Added by §o[Merry Bakery <3]§r",
 
-  "tooltip.merry_bakery.credit": "Added by §o[Merry Bakery <3]§r"
+  "hovertext.merry_bakery.cakelayer_start": "Place a §6§l[Cake Layer]§r to start"
 }

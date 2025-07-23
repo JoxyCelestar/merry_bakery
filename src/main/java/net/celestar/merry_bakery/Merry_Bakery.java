@@ -9,8 +9,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -64,6 +62,7 @@ public class Merry_Bakery
                 output.accept(MB_ItemRegistry.FRUITCAKE_SLICE.get());
     // Custom blocks go here, separated for sorting
                 output.accept(Mod_Blocks.FRUITCAKE.get());
+                output.accept(Mod_Blocks.CAKE_LAYERING_STATION.get());
             }).build());
 
     // --------------------------------------------------------------------------------- //
@@ -134,6 +133,6 @@ public class Merry_Bakery
 */
 
     // box ( Edge X | Y | Z , Opposite Edge X | Y | Z )
-    public static final Supplier<VoxelShape> Shanpe = () -> Shapes.box(1, 1,1 ,1 ,1 ,1);
+    // public static final Supplier<VoxelShape> Shanpe = () -> Shapes.box(1, 1,1 ,1 ,1 ,1);
 
 }
